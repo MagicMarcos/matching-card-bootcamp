@@ -1,7 +1,118 @@
-td{
-  border: 1px solid red;
+html,
+body {
+	margin: 0;
+	height: 100%;
+	background: url('img/background.png');
+	background-size: cover;
+	background-position: center;
+	color: darkgray;
 }
-img{
-  height: 6em;
-  width: 6em;
+
+img {
+	height: 16em;
+	width: 11em;
+	border-radius: 5px;
+	filter: grayscale(60%) brightness(110%);
+}
+
+img:hover {
+	cursor: pointer;
+}
+
+.buttons:hover {
+	cursor: pointer;
+}
+
+.bodyContainer {
+	max-width: 2000px;
+	margin: auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#boardContainer {
+	width: 90%;
+	max-width: 1100px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	border-radius: 5px;
+	justify-content: space-around;
+	background: #262626be;
+	padding: 0 12px 19px 12px;
+	box-shadow: #262626 0px 0px 2px 2px, #000000 4px 4px 8px,
+		#4d4d4d -4px -4px 8px;
+	margin-bottom: 10px;
+}
+
+.imgContainer {
+	margin: 0 10px;
+	margin-top: 20px;
+	border-radius: 5px;
+	box-shadow: #262626 0px 0px 2px 2px, #000000 4px 4px 8px,
+		#4d4d4d -4px -4px 8px;
+	padding: 3px 3px 1px 3px;
+}
+
+header section {
+	width: 90%;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	height: 90px;
+}
+.buttons {
+	width: 11rem;
+	height: 3rem;
+	background: #262626be;
+	color: darkgray;
+	border-radius: 5px;
+	box-shadow: #262626 0px 0px 2px 2px, #000000 4px 4px 8px,
+		#4d4d4d -4px -4px 8px;
+	padding: 3px 3px 1px 3px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+.counter {
+	width: 5rem;
+	height: 3rem;
+	background: #262626be;
+	color: darkgray;
+	border-radius: 5px;
+	box-shadow: #262626 0px 0px 2px 2px, #000000 4px 4px 8px,
+		#4d4d4d -4px -4px 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+footer {
+	margin: 20px;
+}
+
+footer a {
+	color: darkgray;
+	font-size: 20px;
+	margin: 0 10px;
+	border-radius: 50%;
+	padding: 15px;
+	box-shadow: #262626 0px 0px 2px 2px, #000000 4px 4px 8px,
+		#4d4d4d -4px -4px 8px;
+}
+
+footer a:active {
+	color: rgb(48, 101, 170);
+	box-shadow: inset #262626 0px 0px 2px 2px, inset #000000 4px 4px 8px,
+		inset #4d4d4d -4px -4px 8px;
+}
+
+.hidden {
+	display: none;
 }

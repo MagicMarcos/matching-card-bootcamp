@@ -1,48 +1,92 @@
 const cards = document.querySelectorAll('.card');
-function shuffleCards() {
-	let city1 = 'boston',
-		city2 = 'shanghai',
-		city3 = 'milan',
-		city4 = 'london',
-		city5 = 'paris',
-		cityNames = [city1, city2, city3, city4, city5];
 
-	cityNames = cityNames.concat(cityNames).sort(() => Math.random() - 0.5);
-	cards.forEach((el, i) => {
-		el.dataset.value = cityNames[i];
-		console.log('dataset value = ' + el.dataset.value);
+function shuffleCards() {
+	let house1 = 'houseTully',
+		house2 = 'houseBaratheon',
+		house3 = 'houseLannister',
+		house4 = 'houseStark',
+		house5 = 'houseTargaryen',
+		houses = [house1, house2, house3, house4, house5];
+	houses = houses.concat(houses).sort(() => Math.random() - 0.5);
+	cards.forEach((card, i) => {
+		card.dataset.value = houses[i];
 	});
 }
 
 shuffleCards();
 
-cards.forEach(el => el.addEventListener('click', checkForMatch));
+let timeLeft = 15;
+const startBtn = document.getElementById('start');
+startBtn.addEventListener('click', gameBegin);
+let gameWon = false;
+
+function gameBegin() {
+	cards.forEach(el => {
+		el.addEventListener('click', checkForMatch);
+	});
+	startBtn.classList.add('hidden');
+	document.getElementById('countdown').classList.remove('hidden');
+	const gameTimer = setInterval(() => {
+		if (timeLeft <= -1) {
+			cards.forEach(el => {
+				el.removeEventListener('click', checkForMatch);
+			});
+			clearInterval(gameTimer);
+			if (gameWon === false) {
+				alert('You Lose');
+			}
+
+			document.getElementById('countdown').classList.add('hidden');
+			document.getElementById('reset').classList.remove('hidden');
+			return;
+		} else {
+			document.getElementById('countdown').innerText = timeLeft;
+		}
+		timeLeft--;
+	}, 1000);
+}
 
 let clicked = [];
 let count = 0;
 function checkForMatch(click) {
-	click.target.src = `img/${click.target.dataset.value}.jpeg`;
-	// store clicked element in an array
+	click.target.src = `img/${click.target.dataset.value}.png`;
+
 	clicked.push(click.target);
+
 	if (clicked.length === 2) {
-		if (clicked[0].dataset.value === clicked[1].dataset.value) {
+		if (
+			clicked[0].dataset.value === clicked[1].dataset.value &&
+			clicked[0].classList !== clicked[1].classList
+		) {
+			clicked.forEach(el => el.removeEventListener('click', checkForMatch));
 			count++;
 		} else {
 			setTimeout(() => {
-				clicked.forEach(el => (el.src = `img/test.png`));
-				console.log('changing');
-			}, 800);
-			console.log('change');
+				clicked.forEach(el => {
+					el.src = `img/cardFront.png`;
+				});
+			}, 300);
 		}
 		setTimeout(() => {
 			clicked = [];
-		}, 801);
+		}, 301);
+	} else if (clicked.length > 2) {
+		clicked.forEach(el => {
+			el.src = `img/cardFront.png`;
+		});
+		clicked = [];
 	}
-	console.log('clicked array', clicked, click.target.dataset.value);
 
 	if (count === 5) {
+		gameWon = true;
 		setTimeout(() => {
-			alert('youWin');
-		}, 1000);
+			alert('You Win!');
+			document.getElementById('countdown').classList.add('hidden');
+			document.getElementById('reset').classList.remove('hidden');
+		}, 310);
 	}
 }
+
+document
+	.getElementById('reset')
+	.addEventListener('click', () => location.reload());
