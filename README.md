@@ -1,22 +1,23 @@
-# ♠️ Week08 Bootcamp2019a Project: Matching Card Game
+# Game of Thrones Matching Game
 
-### Goal: Make a 10 card memory game - users must be able to select two cards and check if they are a match. If they are a match, they stay flipped. If not, they flip back over. Game is done when all cards are matched and flipped over. Example: http://www.fruit-burst.co.uk/fun-and-games/pairs-game 
+<p> A simple JS matching card game </p>
 
-### How to submit your code for review:
+<h1>How It's Made:</h1>
+<p>Utilized: </p> 
+    <ul> 
+        <li>JavaScript</li>
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+<p>users are given 15 seconds to make cards, based on Game of Thrones<p/>
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+<h1>Lessons Learned:</h1>
+<p>Through building this app, I was able to learn more common algorithms and the setTimeout() web api</p>
+
+<h1>Optimizations</h1>
+<p>As someone with no background in art, styling could definitely use improvements.</p>
+<p>Optimize CSS</p>
+<p>Some of the code needs to refactored for better readability. </p>
+
+---
